@@ -21,10 +21,10 @@ def main():
   moreHours = int(input("How many hours in the future would you like to see?"))
   moreMins = int(input("How many minutes in the future would you like to see?"))
 
-  futureMins = (currentMinute + moreMins) % 60 
-  extraHour = (currentMinute + moreMins) // 60
-  futureHours = (currentHour + moreHours + extraHour) % 24
-  extraHours = (currentHour + moreHours + extraHour) // 24
+  futureMins = (currentMinute + moreMins) % 60 #keeps the minutes within the standard allotment of minutes per hour
+  extraHour = (currentMinute + moreMins) // 60 #pulls any time over the hour mark so it isn't lost
+  futureHours = (currentHour + moreHours + extraHour) % 24 #keeps the hours within the standard 24 hour cycle
+  extraHours = (currentHour + moreHours + extraHour) // 24 #pulls the extra hours over the 24 hour mark and applies to the next day so it isn't lost
   
   print(f'The future time will be {futureHours:02}:{futureMins:02}.')
   #Calculate the time after the user-supplied time has passed.
